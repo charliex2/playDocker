@@ -5,7 +5,7 @@ nginx:
     links:
       - "php"
     volumes:
-      - ~/docker-php/opt:/opt
+      - ~/data/docker/opt:/opt
 
 php:
     build: ./php
@@ -14,13 +14,13 @@ php:
     links:
       - "mysql"
     volumes:
-      - ~/docker-php/opt:/opt
+      - ~/data/docker/opt:/opt
 
 mysql:
     build: ./mysql
     ports:
       - "3306:3306"
     volumes:
-      - ~/docker-php/opt/data/mysql:/var/lib/mysql
+      - ~/data/docker/opt/data/mysql:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: 123456
