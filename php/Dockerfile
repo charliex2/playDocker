@@ -6,7 +6,7 @@ RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak \
 	&& cat /opt/apt-list >/etc/apt/sources.list \ 
 	&& apt-get update \ 
 	&& apt-get install -y \
-		zlib1g-dev \
+		zlib1g-dev=1:1.2.8.dfsg-2+b1 \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
@@ -20,4 +20,3 @@ RUN docker-php-ext-install -j$(nproc) iconv mcrypt \
 		
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     	&& composer config -g repo.packagist composer https://packagist.phpcomposer.com \
-
